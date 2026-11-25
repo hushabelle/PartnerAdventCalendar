@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#731d2b" />
+    <title>Christopher's advent calendar</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"
+      defer
+    ></script>
+    <script src="config.js" defer></script>
+    <script src="calendar.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="snowfall" aria-hidden="true">
+          <span>✻</span><span>❄</span><span>•</span><span>✻</span><span>❄</span
+          ><span>•</span><span>✻</span><span>❄</span><span>•</span><span>✻</span
+          ><span>❄</span><span>•</span><span>✻</span><span>❄</span>
+        </div>
+        <div class="lights" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+          ><i></i>
+        </div>
+        <p class="eyebrow">A LITTLE 2026 ADVENT CALENDAR</p>
+        <h1>For <span id="recipient"></span></h1>
+        <p class="signature">with love from <span id="sender"></span></p>
+        <p class="progress" id="progress">A little magic awaits</p>
+      </header>
+      <section id="login" class="panel">
+        <p class="eyebrow dark">WELCOME</p>
+        <h2>Come on in</h2>
+        <p>Choose who you are and enter your calendar password.</p>
+        <form id="login-form">
+          <label for="who">I am</label
+          ><select id="who">
+            <option value="partner">Christopher</option>
+            <option value="organiser">Anna</option></select
+          ><label for="password">Password</label
+          ><input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          /><button class="action" type="submit">Open calendar</button>
+        </form>
+        <p class="notice" id="login-error" role="status"></p>
+      </section>
+      <section id="app" hidden>
+        <section id="preview-controls" class="preview-controls" aria-label="Organiser preview" hidden>
+          <p><strong>Organiser preview:</strong> Opening a door here only changes your preview.</p>
+          <p id="real-progress" class="real-progress"></p>
+          <div class="preview-actions">
+            <label for="preview-date">Pretend today is</label>
+            <input id="preview-date" type="date" />
+            <button id="preview-real-date" type="button">Use real date</button>
+            <button id="preview-open-all" type="button">Open all previews</button>
+            <button id="preview-clear" type="button">Clear previews</button>
+          </div>
+          <p id="preview-status" class="preview-status" role="status"></p>
+        </section>
+        <div class="intro">
+          <div>
+            <p class="eyebrow dark" id="view-label"></p>
+            <h2>Let the magic begin <span>✳</span></h2>
+          </div>
+          <button id="logout" class="text-button" type="button">
+            Sign out
+          </button>
+        </div>
+        <p class="notice" id="app-notice" role="status"></p>
+        <section
+          class="calendar"
+          id="calendar"
+          aria-label="Advent calendar doors"
+        ></section>
+      </section>
+      <footer>Made with love, just for you <span>♥</span></footer>
+    </main>
+    <dialog id="surprise" aria-labelledby="dialog-title">
+      <div id="music-notes" class="music-notes" aria-hidden="true">
+        <span>♪</span><span>♫</span><span>♪</span><span>♫</span>
+        <span>♫</span><span>♪</span><span>♫</span><span>♪</span>
+      </div>
+      <div id="fireworks" class="fireworks" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div id="water-ripples" class="water-ripples" aria-hidden="true">
+        <span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span>
+      </div>
+      <button class="close" type="button" aria-label="Close surprise">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>
